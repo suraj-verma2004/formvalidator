@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+   <link rel="stylesheet" href="a.css">    
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <form class="forms " id="form">
+            <h3>Registration Form</h3>
+            <div class="form-control">
+                <label>Name</label>
+                <input type="text" id="username" />
+                <span class="error"></span>
+            </div>
+            <div class="form-control">              
+                <label>Email</label>
+                <input type="text" id="email"  placeholder="ex:xyz12@gmail.com"/>
+                <span class="error"></span>
+            </div>
+            <div class="form-control">
+                <label>Password</label>
+                <input type="password" id="pass" />
+                <span class="error"></span>
+            </div>
+            <div class="form-control">
+                <label>Confirm password</label>
+                <input type="password" id="cnfpass" />
+                <span class="error"></span>
+            </div>
+            <input type="submit" id="btn" value="Submit"/>
+            
+
+        </form>
+    </div>
+
+</body>
+    <script >
+
+
+        const form= document.getElementById("form");
+        const username =document.getElementById("username");
+        const email= document.getElementById("email");
+        const pass =document.getElementById("pass");
+        const cnfpass =document.getElementById("cnfpass");
+        const submit= document.getElementById("btn");
+
+
+        /* Adding event Listener for submit button */
+
+        form.addEventListener('submit',(e)=>{
+            e.preventDefault();
+            validateInput();
+        });
+
+        /* VALIDATE FUNCTION */
+
+        const validateInput=()=>{
+
+            /* TRIMMING ALL VALUES */
+
+            const usernamevalue =username.value.trim();
+            const emailvalue = email.value.trim();
+            const passvalue =pass.value.trim();
+            const cnfpassvalue = cnfpass.value.trim();
+
+            if(usernamevalue ===''){
+                setError(username,'Username is required');}
+                 else if (!isname(usernamevalue)) {
+        setError(username, 'Name should only contain letters');}
+                else{
+                    setSuccess(username);
+                }
+
+            if(emailvalue === '') {
+                    setError(email, 'Email is required');
+                } 
+                    else if (!isValidEmail(emailvalue)) {
+                    setError(email, 'Provide a valid email address');
+                }            else {
+                               setSuccess(email);
+                } 
+            
+        
+         if(passvalue ===''){
+                setError(pass,'Password is required');}
+                else if(passvalue.length <8){
+                    setError(pass,'Password is required atleast 8 character');
+                }
+                else{
+                    setSuccess(pass);
+                } 
+
+                if(cnfpassvalue ===''){
+                    setError(cnfpass,'please enter same password ');
+                }
+                    else if(cnfpassvalue !== passvalue){
+                        setError(cnfpass,'Password does not match');
+                    }
+                          else{
+                                setSuccess(cnfpass);
+                              } 
+        
+
+        }
+            
+
+  const setError = (element, message) => {
+    const inputControl = element.parentElement;
+    const errorDisplay = inputControl.querySelector('.error'); 
+
+    errorDisplay.innerText = message; 
+    inputControl.classList.add('error'); 
+    inputControl.classList.remove('success'); 
+};
+
+const setSuccess = (element) => {
+    const inputControl = element.parentElement; 
+    const errorDisplay = inputControl.querySelector('.error'); 
+
+    errorDisplay.innerText = ''; 
+    inputControl.classList.add('success'); 
+    inputControl.classList.remove('error'); 
+};
+        
+        
+        const isValidEmail = (email) => {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        };
+        const isname=(username)=>{
+            return /^[a-zA-Z+]+$/.test(username)
+        }
+        
+
+        
+    </script>
+
+
+</html>

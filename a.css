@@ -1,0 +1,158 @@
+body{
+    background:linear-gradient(320deg,skyblue,violet,skyblue,#007bff);
+    background-repeat: no-repeat;
+    background-size:200% 200%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-attachment: fixed;
+    font-family:'Times New Roman', Times, serif;
+    animation: color  6s infinite linear;
+
+}
+@keyframes color {
+    0% {
+        background-position: 0 100%;
+    }
+
+    50% {
+        background-position: 100% 0%;
+    }
+
+    75% {
+        background-position: 0% 100%;
+    }}
+
+.container{
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 0.8rem;
+    width:90%;
+    max-height: 95vh;
+    max-width: 500px;
+    overflow-y: auto;
+    margin: 1rem auto;
+    border: 1px solid #333;
+    box-shadow: 0px 0px 20px rgb(21, 21, 21);
+}
+h3{
+    text-align: center;
+    margin-bottom: 2rem;
+    color:#333;
+    font-size: 1.8rem;
+}
+
+.form-control{
+    display: flex;
+    flex-direction: column;
+ margin-bottom: 1rem;
+ position: relative;   
+}
+.form-control label{
+    margin-bottom: 0.5rem;
+    color:#555;
+    font-size:  1rem;
+    font-weight: bold;
+}
+.form-control input{
+   padding: .8rem 1rem;
+   border:1px solid #ccc9c9;
+   border-radius: 0.4rem;
+   font-size: 1.1rem;
+   width: 100%;
+   box-sizing: border-box;
+   transition: border-color 0.3 ease;
+}
+.form-control input:focus {
+    outline: none;
+    /* border:2px solid; */
+    border-color:#007bff; 
+    /* background-color: rgba(197, 214, 220, 0.477); */
+}
+
+
+/* Error message styling */
+.form-control .error {
+    color: #dc3545;
+    font-size: 0.9rem;
+    margin-top: 0.3rem; 
+    min-height: 1.2rem; 
+}
+.form-control.success input {
+    border-color: #28a745;
+}
+
+.form-control.error input {
+    border-color: #dc3545;
+}
+#form #btn {
+    display: block;
+    width: 100%; 
+    padding: 1rem;
+    margin-top: 2rem; 
+    background-color: #007bff; 
+    border: none;
+    border-radius: 0.4rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.1s ease-in; 
+}
+ #form #btn:hover {
+    background-color: #37d70b;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    .form-control label,
+    .form-control input,
+    .form-control .error,
+    #form #btn {
+        font-size: 0.9rem;
+    }
+
+    .form-control input {
+        padding: 0.6rem 0.8rem;
+    }
+
+    #form #btn {
+        padding: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 1rem;
+        margin: 0.5rem;
+    }
+
+    h3 {
+        font-size: 1.3rem;
+    }
+
+    .form-control label,
+    .form-control input,
+    .form-control .error,
+    #form #btn {
+        font-size: 0.8rem;
+    }
+
+    .form-control input {
+        padding: 0.5rem 0.7rem;
+    }
+
+    #form #btn {
+        padding: 0.7rem;
+    }
+}
+
