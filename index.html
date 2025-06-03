@@ -51,7 +51,8 @@
 
         form.addEventListener('submit',(e)=>{
             e.preventDefault();
-            validateInput();
+            if(validateInput()){
+                alert("Submitted");}
         });
 
         /* VALIDATE FUNCTION */
@@ -95,8 +96,7 @@
                 } 
             return isvalid;
 
-    if(isvalid){
-        alert("Sumitted");}
+
         
 
         }
