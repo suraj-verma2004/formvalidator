@@ -134,7 +134,7 @@ const setSuccess = (element) => {
             return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
         };
         const isname=(username)=>{
-            return /^[a-zA-Z+]+$/.test(username)
+            return /^[a-zA-Z+]+(?: [a-zA-Z]+)*$/.test(username)
         }
         
 
