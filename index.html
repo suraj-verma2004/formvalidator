@@ -59,35 +59,41 @@
         const validateInput=()=>{
 
             /* TRIMMING ALL VALUES */
-
+            let isvalid=true;
             const usernamevalue =username.value.trim();
             const emailvalue = email.value.trim();
             const msgvalue=msg.value.trim();
 
             if(usernamevalue ===''){
-                setError(username,'Username is required');}
+                setError(username,'Username is required');
+             isvalid=false;}
                  else if (!isname(usernamevalue)) {
-        setError(username, 'Name should only contain letters');}
+        setError(username, 'Name should only contain letters');
+                 isvalid=false;}
                 else{
                     setSuccess(username);
                 }
 
             if(emailvalue === '') {
                     setError(email, 'Email is required');
+                isvalid=false;
                 } 
                     else if (!isValidEmail(emailvalue)) {
                     setError(email, 'Provide a valid email address');
+                        isvalid=false;
                 }            else {
                                setSuccess(email);
                 } 
             
         
          if(msgvalue ===''){
-                setError(msg,'Please write something');}
+                setError(msg,'Please write something');
+         isvalid=false;}
             
                 else{
                     setSuccess(msg);
                 } 
+            return isvalid;
 
     
         
@@ -111,8 +117,11 @@ const setSuccess = (element) => {
     errorDisplay.innerText = ''; 
     inputControl.classList.add('success'); 
     inputControl.classList.remove('error'); 
-    alert('Submitted Successfully');
+   
 };
+
+         if(isvalid){
+    alert('Submitted Successfully');}
         
         
         const isValidEmail = (email) => {
